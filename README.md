@@ -37,13 +37,12 @@ A simple [Serverless](https://serverless.com/) API example, using MongoDB and AW
 ```
 
 ## Example endpoints
-`POST /mountains`
-`PUT /mountains/:id`
-`GET /mountains`
-`GET /mountains?region=<REGION>`
-`GET /mountains/:id`
-`DELETE /mountains/:id`
-
+- `POST /mountains`
+- `PUT /mountains/:id`
+- `GET /mountains`
+- `GET /mountains?region=<REGION>`
+- `GET /mountains/:id`
+- `DELETE /mountains/:id`
 
 ## Offline Example
 ```js
