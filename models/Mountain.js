@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+import mongoose from 'mongoose'
 /* Delete the the model so it can be recreated
 by another endpoint without an error */
-delete mongoose.connection.models['Mountain'];
+delete mongoose.connection.models['Mountain']
 
 const MountainSchema = new mongoose.Schema({
   created: Number,
@@ -27,6 +26,6 @@ const MountainSchema = new mongoose.Schema({
   },
   os_grid_ref: String,
   classification: [String]
-});
+})
 
-export default mongoose.model('Mountain', MountainSchema);
+export default mongoose.model('Mountain', MountainSchema)

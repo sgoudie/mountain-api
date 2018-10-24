@@ -2,20 +2,17 @@
   "name": "mountain-api",
   "version": "1.0.0",
   "description": "A simple Serverless API example, using MongoDB and AWS.",
-  "author": "Samuel Goudie <hello@sgoudie.com>",
-  "license": "MIT",
-  "repository": "sgoudie/mountain-api",
-  "scripts": {
-    "test": "jest",
-    "sls-offline": "sls offline start --stage dev --skipCacheInvalidation",
-    "deploy:prod": "serverless deploy --stage prod",
-    "deploy:dev": "serverless deploy --stage dev"
-  },
   "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/sgoudie/mountain-api.git"
+  },
+  "scripts": {
+    "test": "eslint . && jest",
+    "sls-offline": "sls offline start --stage dev --skipCacheInvalidation",
+    "deploy:prod": "serverless deploy --stage prod",
+    "deploy:dev": "serverless deploy --stage dev"
   },
   "devDependencies": {
     "aws-sdk": "^2.341.0",
@@ -25,6 +22,12 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
+    "eslint": "^5.7.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "jest": "^21.2.1",
     "serverless-offline": "^3.25.6",
     "serverless-webpack": "^5.1.0",

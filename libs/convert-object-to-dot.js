@@ -1,17 +1,17 @@
-const isObject = val => Object.prototype.toString.call(val) === '[object Object]';
-const isEmptyObject = val => Object.keys(val).length === 0;
+const isObject = val => Object.prototype.toString.call(val) === '[object Object]'
+const isEmptyObject = val => Object.keys(val).length === 0
 
 const convertObjectToDot = (obj, tgt, path) => {
-  tgt = tgt || {};
-  path = path || [];
+  tgt = tgt || {}
+  path = path || []
   Object.keys(obj).forEach(function (key) {
     if (isObject(obj[key]) && !isEmptyObject(obj[key])) {
-      return convertObjectToDot(obj[key], tgt, path.concat(key));
+      return convertObjectToDot(obj[key], tgt, path.concat(key))
     } else {
-      tgt[path.concat(key).join('.')] = obj[key];
+      tgt[path.concat(key).join('.')] = obj[key]
     }
   }.bind(this))
-  return tgt;
-};
+  return tgt
+}
 
-export default convertObjectToDot;
+export default convertObjectToDot
