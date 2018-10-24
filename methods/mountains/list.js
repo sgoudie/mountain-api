@@ -28,6 +28,7 @@ export function main (event, context, callback) {
 
       callback(null, success({
         object: 'list',
+        method: 'GET',
         url: event.path,
         params,
         count: mountains.length,

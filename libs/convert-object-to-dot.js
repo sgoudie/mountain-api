@@ -10,7 +10,7 @@ const convertObjectToDot = (obj, tgt, path) => {
     } else {
       tgt[path.concat(key).join('.')] = obj[key]
     }
-  }.bind(this))
+  })
   return tgt
 }
 

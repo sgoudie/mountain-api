@@ -19,7 +19,12 @@ export function main (event, context, callback) {
   connectToDatabase()
     .then(async () => {
       const newMountain = await Mountain.create(mountain)
-      callback(null, success(newMountain))
+      callback(null, success({
+        object: 'mountain',
+        method: 'POST',
+        url: event.path,
+        data: newMountain
+      }))
     })
     .catch(err => {
       console.log(err)

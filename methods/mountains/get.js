@@ -14,12 +14,20 @@ export function main (event, context, callback) {
   connectToDatabase()
     .then(async () => {
       const mountain = await Mountain.findOne({ _id: mountainId }, { __v: 0 })
-      const data = mountain.toJSON()
-      callback(null, success({
-        object: 'mountain',
-        url: event.path,
-        data
-      }))
+      if (mountain === null) {
+        callback(null, failure({
+          status: false,
+          error: `No mountain found for ${mountainId}`
+        }))
+      } else {
+        const data = mountain.toJSON()
+        callback(null, success({
+          object: 'mountain',
+          method: 'GET',
+          url: event.path,
+          data
+        }))
+      }
     })
     .catch(err => {
       console.log(err)

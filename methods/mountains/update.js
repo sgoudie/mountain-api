@@ -19,8 +19,13 @@ export function main (event, context, callback) {
 
   connectToDatabase()
     .then(async () => {
-      const mountain = await Mountain.updateOne({ _id: mountainId }, update)
-      callback(null, success(`Updated mountain ${mountain._id}`))
+      const mountain = await Mountain.findOneAndUpdate({ _id: mountainId }, update, { new: true })
+      callback(null, success({
+        object: 'mountain',
+        method: 'PUT',
+        url: event.path,
+        data: mountain
+      }))
     })
     .catch(err => {
       console.log(err)
