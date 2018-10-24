@@ -1,8 +1,6 @@
 import { connectToDatabase } from '../../libs/mongodb-lib'
 import { success, failure } from '../../libs/response-lib'
-import { adminCheck } from '../../libs/auth'
 import Mountain from '../../models/Mountain'
-import Respondent from '../../models/Respondent'
 
 export function main(event, context, callback) {
   /** Immediate response for WarmUP plugin */
@@ -14,7 +12,7 @@ export function main(event, context, callback) {
   const mountainId = event.pathParameters.id;
 
   connectToDatabase()
-    .then(() => {
+    .then(async () => {
       const mountain = await Mountain.findOne({_id: mountainId }, { __v: 0 })
       const data = mountain.toJSON();
       callback(null, success({

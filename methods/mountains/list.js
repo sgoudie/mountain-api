@@ -16,10 +16,10 @@ export function main(event, context, callback) {
       const projection = {};
 
       if (event.queryStringParameters) {
-        const { country } = event.queryStringParameters;
-        if (country) {
-          params.country = country;
-          projection.country = country;
+        const { region } = event.queryStringParameters;
+        if (region) {
+          params.region = region;
+          projection.region = region;
         }
       }
       // We remove the __v field as it's not needed by the user

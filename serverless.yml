@@ -29,7 +29,6 @@ provider:
     - ${self:custom.stage}-demo-key
   environment:
     MONGO_URI: ${self:custom.environment.MONGO_URI}
-    MAPBOX_TOKEN: ${self:custom.environment.MAPBOX_TOKEN}
   iamRoleStatements:
     - Effect: 'Allow'
       Action:

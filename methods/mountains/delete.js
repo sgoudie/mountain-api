@@ -12,7 +12,7 @@ export function main(event, context, callback) {
   const mountainId = event.pathParameters.id;
 
   connectToDatabase()
-    .then(() => {
+    .then(async () => {
       const mountain = await Mountain.findOneAndRemove({_id: mountainId });
       if (mountain === null) {
         callback(null, failure({

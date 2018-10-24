@@ -1,7 +1,6 @@
 import { connectToDatabase } from '../../libs/mongodb-lib';
 import { success, failure } from '../../libs/response-lib';
 import convertObjectToDot from '../../libs/convert-object-to-dot';
-import { adminCheck } from '../../libs/auth';
 import Mountain from '../../models/Mountain';
 
 export function main(event, context, callback) {
@@ -19,7 +18,7 @@ export function main(event, context, callback) {
   const update = convertObjectToDot(data);
 
   connectToDatabase()
-    .then(() => {
+    .then(async () => {
       const mountain = await Mountain.updateOne({_id: mountainId }, update);
       callback(null, success(`Updated mountain ${mountainId}`));
     })
